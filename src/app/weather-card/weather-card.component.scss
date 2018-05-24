@@ -1,0 +1,87 @@
+@import "../../assets/scss/components/variables";
+.card {
+  background-color: #fdfdfd;
+  width: 100%;
+  max-width: 750px;
+  min-height: 270px;
+  border-radius: 2px;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+  margin: auto;
+  padding: 40px;
+  position: relative;
+  .weather-detail {
+    .date {
+      font-size: 1.2rem;
+      color: #78909c;
+      margin-bottom: 30px;
+      font-weight: 300;
+    }
+    .temperature {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-end;
+      @media #{$small-and-down} {
+        margin-bottom: 10px;
+      }
+    }
+    .unit {
+      font-size: 120px;
+      font-weight: 100;
+      line-height: 1;
+      position: relative;
+      &:after {
+        content: '';
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        border: 2px solid #000;
+        position: absolute;
+        top: -5px;
+        right: -15px;
+      }
+    }
+    .desc {
+      color: #90a4ae;
+      font-size: 30px;
+      line-height: 1;
+      padding-bottom: 20px;
+      padding-left: 20px;
+      font-weight: 300;
+    }
+  }
+  img {
+    display: block;
+    max-width: 100%;
+    @media #{$small-and-down} {
+      margin: 0 auto 25px;
+    }
+  }
+}
+
+$refresh-color: #b0bec5;
+.refresh-desc {
+  color: $refresh-color;
+  cursor: pointer;
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.refresh-button {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  img {
+    width: 16px;
+    display: block;
+    margin: auto;
+    filter: grayscale(100%);
+  }
+}

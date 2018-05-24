@@ -1,0 +1,28 @@
+<div class="card row">
+  <ng-container *ngIf="weather; else loader">
+    <div class="weather-icon col m4 s12 push-m8">
+      <img src="assets/images/icons/{{weather?.icon}}.png">
+    </div>
+    <div class="weather-detail col m8 s12 pull-m4">
+      <p class="date">{{ weather?.now | amDateFormat:'Do MMMM YYYY' }} | {{ weather?.location }}</p>
+
+      <div class="temperature">
+        <div class="unit">{{ weather?.temperature }}</div>
+        <div class="desc">{{ weather?.description }}</div>
+      </div>
+
+    </div>
+
+    <div class="refresh-desc" (click)="refresh()">
+      <div class="refresh-button">
+        <img src="../assets/images/reload.png" />
+      </div>
+      <p>Last update: {{ weather?.last_update | amDateFormat: 'Do MMMM YYYY, HH:mm:ss' }}</p>
+    </div>
+  </ng-container>
+</div>
+
+
+<ng-template #loader>
+  <app-loader></app-loader>
+</ng-template>
