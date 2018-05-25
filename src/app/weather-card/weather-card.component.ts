@@ -48,12 +48,23 @@ export class WeatherCardComponent implements OnChanges {
       .subscribe((res) => {
         this.weather = res;
       }, err => {
-        this.weather = err;
+        this.weather = err || this.defaultWeather();
+        console.log(this.weather);
         const msg = err ? 'API not available. Retrieve last weather' : 'Ops! API not available';
         this.showMessage(msg);
       });
   }
 
+  defaultWeather() {
+    return {
+      location: 'unknown',
+      icon: 'unavailable',
+      description: 'Unavailable',
+      temperature: 88,
+      now: new Date(),
+      last_update: new Date()
+    };
+  }
 
   showMessage(msg) {
     EmitterService.get(EmitterService.ToastMessage)
